@@ -74,7 +74,7 @@ class JukeboxCard extends HTMLElement {
 
         const slider = document.createElement('ha-slider');
         slider.min = 0;
-        slider.max = 100;
+        slider.max = 15;
         slider.addEventListener('change', this.onChangeVolumeSlider.bind(this));
         slider.className = 'flex';
 
