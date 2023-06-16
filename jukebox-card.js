@@ -72,11 +72,11 @@ class JukeboxCardNew extends HTMLElement {
 	mbIcon.icon = 'hass:volume-high';
 	muteButton.appendChild(mbIcon);
 
-        //const slider = document.createElement('ha-slider');
-        //slider.min = 0;
-        //slider.max = 15;
-        //slider.addEventListener('change', this.onChangeVolumeSlider.bind(this));
-        //slider.className = 'flex';
+        const slider = document.createElement('ha-slider');
+        slider.min = 0;
+        slider.max = 15;
+        slider.addEventListener('change', this.onChangeVolumeSlider.bind(this));
+        slider.className = 'flex';
 
         const stopButton = document.createElement('ha-icon-button')
         stopButton.icon = 'hass:stop';
@@ -95,10 +95,10 @@ class JukeboxCardNew extends HTMLElement {
 
             // no speaker level? then hide mute button and volume
             if (!speakerState.hasOwnProperty('volume_level')) {
-                //slider.setAttribute('hidden', true);
+                slider.setAttribute('hidden', true);
                 stopButton.setAttribute('hidden', true)
             } else {
-                //slider.removeAttribute('hidden');
+                slider.removeAttribute('hidden');
                 stopButton.removeAttribute('hidden')
             }
 
@@ -114,21 +114,21 @@ class JukeboxCardNew extends HTMLElement {
                 stopButton.setAttribute('disabled', true);
             }
 
-            //slider.value = speakerState.volume_level ? speakerState.volume_level * 100 : 0;
+            slider.value = speakerState.volume_level ? speakerState.volume_level * 100 : 0;
 
             if (speakerState.is_volume_muted && !slider.disabled) {
-                //slider.disabled = true;
+                slider.disabled = true;
                 muteButton.icon = 'hass:volume-off';
                 muteButton.isMute = true;
             } else if (!speakerState.is_volume_muted && slider.disabled) {
-                //slider.disabled = false;
+                slider.disabled = false;
                 muteButton.icon = 'hass:volume-high';
                 muteButton.isMute = false;
             }
         });
 
         volumeContainer.appendChild(muteButton);
-        //volumeContainer.appendChild(slider);
+        volumeContainer.appendChild(slider);
         volumeContainer.appendChild(stopButton);
         return volumeContainer;
     }
