@@ -22,24 +22,24 @@ class JukeboxCard extends HTMLElement {
     }
 
     buildSpeakerSwitches(hass) {
-        this._tabs = document.createElement('paper-tabs');
-        this._tabs.setAttribute('scrollable', true);
-        this._tabs.addEventListener('iron-activate', (e) => this.onSpeakerSelect(e.detail.item.entityId));
+        // this._tabs = document.createElement('paper-tabs');
+        // this._tabs.setAttribute('scrollable', true);
+        // this._tabs.addEventListener('iron-activate', (e) => this.onSpeakerSelect(e.detail.item.entityId));
 
-        this.config.entities.forEach(entityId => {
-            if (!hass.states[entityId]) {
-                console.log('Jukebox: No State for entity', entityId);
-                return;
-            }
-            this._tabs.appendChild(this.buildSpeakerSwitch(entityId, hass));
-        });
+        // this.config.entities.forEach(entityId => {
+        //     if (!hass.states[entityId]) {
+        //         console.log('Jukebox: No State for entity', entityId);
+        //         return;
+        //     }
+        //     this._tabs.appendChild(this.buildSpeakerSwitch(entityId, hass));
+        // });
 
         // automatically activate the first speaker that's playing
         const firstPlayingSpeakerIndex = this.findFirstPlayingIndex(hass);
         this._selectedSpeaker = this.config.entities[firstPlayingSpeakerIndex];
-        this._tabs.setAttribute('selected', firstPlayingSpeakerIndex);
+        // this._tabs.setAttribute('selected', firstPlayingSpeakerIndex);
 
-        return this._tabs;
+        // return this._tabs;
     }
 
     buildStationList() {
@@ -287,7 +287,6 @@ function getStyle() {
     }
     
     paper-tabs {
-        visibility: hidden;
         background-color: var(--primary-color);
         color: var(--text-primary-color);
         --paper-tabs-selection-bar-color: var(--text-primary-color, #FFF);
