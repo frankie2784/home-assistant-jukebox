@@ -271,6 +271,10 @@ function getStyle() {
     [hidden] {
         display: none !important;
     }
+
+    ha-slider {
+	display: none;
+    }
     
     .volume {
         padding: 10px 20px;
