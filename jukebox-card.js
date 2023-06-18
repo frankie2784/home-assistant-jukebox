@@ -1,5 +1,4 @@
 class JukeboxCard extends HTMLElement {
-    console.log('willies');
     set hass(hass) {
         if (!this.content) {
             this._hassObservers = [];
@@ -288,6 +287,7 @@ function getStyle() {
     }
     
     paper-tabs {
+        visibility: hidden;
         background-color: var(--primary-color);
         color: var(--text-primary-color);
         --paper-tabs-selection-bar-color: var(--text-primary-color, #FFF);
