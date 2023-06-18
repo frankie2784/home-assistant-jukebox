@@ -23,21 +23,21 @@ class JukeboxCard extends HTMLElement {
 
     buildSpeakerSwitches(hass) {
         this._tabs = document.createElement('paper-tabs');
-        // this._tabs.setAttribute('scrollable', true);
-        // this._tabs.addEventListener('iron-activate', (e) => this.onSpeakerSelect(e.detail.item.entityId));
+        this._tabs.setAttribute('scrollable', true);
+        this._tabs.addEventListener('iron-activate', (e) => this.onSpeakerSelect(e.detail.item.entityId));
 
-        // this.config.entities.forEach(entityId => {
-        //     if (!hass.states[entityId]) {
-        //         console.log('Jukebox: No State for entity', entityId);
-        //         return;
-        //     }
-        //     this._tabs.appendChild(this.buildSpeakerSwitch(entityId, hass));
-        // });
+        this.config.entities.forEach(entityId => {
+            if (!hass.states[entityId]) {
+                console.log('Jukebox: No State for entity', entityId);
+                return;
+            }
+            this._tabs.appendChild(this.buildSpeakerSwitch(entityId, hass));
+        });
 
         // automatically activate the first speaker that's playing
         const firstPlayingSpeakerIndex = this.findFirstPlayingIndex(hass);
         this._selectedSpeaker = this.config.entities[firstPlayingSpeakerIndex];
-        // this._tabs.setAttribute('selected', firstPlayingSpeakerIndex);
+        this._tabs.setAttribute('selected', firstPlayingSpeakerIndex);
 
         return this._tabs;
     }
