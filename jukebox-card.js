@@ -287,13 +287,10 @@ function getStyle() {
     }
     
     paper-tabs {
+    	display: none;
         background-color: var(--primary-color);
         color: var(--text-primary-color);
         --paper-tabs-selection-bar-color: var(--text-primary-color, #FFF);
-    }
-
-    paper-tab {
-    	visibility: hidden;
     }
             
     `;
