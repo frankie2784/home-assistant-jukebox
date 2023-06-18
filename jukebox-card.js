@@ -93,12 +93,13 @@ class JukeboxCard extends HTMLElement {
             }
             const speakerState = hass.states[this._selectedSpeaker].attributes;
 
+	    slider.setAttribute('hidden', true);
             // no speaker level? then hide mute button and volume
             if (!speakerState.hasOwnProperty('volume_level')) {
-                slider.setAttribute('hidden', true);
+                // slider.setAttribute('hidden', true);
                 stopButton.setAttribute('hidden', true)
             } else {
-                slider.removeAttribute('hidden');
+                // slider.removeAttribute('hidden');
                 stopButton.removeAttribute('hidden')
             }
 
@@ -270,10 +271,6 @@ function getStyle() {
     
     [hidden] {
         display: none !important;
-    }
-
-    ha-slider {
-	display: none;
     }
     
     .volume {
