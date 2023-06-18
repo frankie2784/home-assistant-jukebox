@@ -291,6 +291,10 @@ function getStyle() {
         color: var(--text-primary-color);
         --paper-tabs-selection-bar-color: var(--text-primary-color, #FFF);
     }
+
+    paper-tab {
+    	visibility: hidden;
+    }
             
     `;
 
