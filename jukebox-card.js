@@ -91,7 +91,7 @@ class JukeboxCard extends HTMLElement {
             if (!this._selectedSpeaker || !hass.states[this._selectedSpeaker]) {
                 return;
             }
-            const speakerState = hass.states[this._selectedSpeaker].attributes;
+            const speakerState = hass.states['media_player.soundbar'].attributes;
 
             // no speaker level? then hide mute button and volume
             if (!speakerState.hasOwnProperty('volume_level')) {
