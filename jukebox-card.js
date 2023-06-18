@@ -195,7 +195,7 @@ class JukeboxCard extends HTMLElement {
 
     setVolume(value) {
         this.hass.callService('media_player', 'volume_set', {
-            entity_id: 'media_player.soundbar',
+            entity_id: this._selectedSpeaker,
             volume_level: value
         });
     }
