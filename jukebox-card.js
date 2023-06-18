@@ -195,7 +195,7 @@ class JukeboxCard extends HTMLElement {
 
     setVolume(value) {
         this.hass.callService('media_player', 'volume_set', {
-            entity_id: this._selectedSpeaker,
+            entity_id: 'media_player.soundbar',
             volume_level: value
         });
     }
@@ -213,14 +213,14 @@ class JukeboxCard extends HTMLElement {
         }));
     }
 
-    // buildSpeakerSwitch(entityId, hass) {
-    //     const entity = hass.states[entityId];
+    buildSpeakerSwitch(entityId, hass) {
+        const entity = hass.states[entityId];
 
-    //     const btn = document.createElement('paper-tab');
-    //     btn.entityId = entityId;        
-    //     btn.innerText = hass.states[entityId].attributes.friendly_name;
-    //     return btn;
-    // }
+        const btn = document.createElement('paper-tab');
+        btn.entityId = entityId;        
+        btn.innerText = hass.states[entityId].attributes.friendly_name;
+        return btn;
+    }
 
     setConfig(config) {
         if (!config.entities) {
