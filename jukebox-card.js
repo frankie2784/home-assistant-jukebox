@@ -218,7 +218,7 @@ class JukeboxCard extends HTMLElement {
 
         const btn = document.createElement('paper-tab');
         btn.entityId = entityId;        
-        btn.innerText = entityId;#hass.states[entityId].attributes.friendly_name;
+        btn.innerText = entityId;//hass.states[entityId].attributes.friendly_name;
         return btn;
     }
 
