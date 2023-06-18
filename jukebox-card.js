@@ -1,4 +1,5 @@
 class JukeboxCard extends HTMLElement {
+    console.log('willies');
     set hass(hass) {
         if (!this.content) {
             this._hassObservers = [];
