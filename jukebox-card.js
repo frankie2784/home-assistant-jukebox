@@ -180,7 +180,7 @@ class JukeboxCard extends HTMLElement {
         const btn = document.createElement('mwc-button');
         btn.stationUrl = url;
         btn.className = 'juke-toggle';
-        btn.innerText = name;
+        btn.innerText = this._selectedSpeaker//name;
         btn.addEventListener('click', this.onStationSelect.bind(this));
         return btn;
     }
@@ -218,7 +218,7 @@ class JukeboxCard extends HTMLElement {
 
         const btn = document.createElement('paper-tab');
         btn.entityId = entityId;        
-        btn.innerText = this._selectedSpeaker//hass.states[entityId].attributes.friendly_name;
+        btn.innerText = hass.states[entityId].attributes.friendly_name;
         return btn;
     }
 
