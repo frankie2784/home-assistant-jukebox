@@ -213,14 +213,14 @@ class JukeboxCard extends HTMLElement {
         }));
     }
 
-    buildSpeakerSwitch(entityId, hass) {
-        const entity = hass.states[entityId];
+    // buildSpeakerSwitch(entityId, hass) {
+    //     const entity = hass.states[entityId];
 
-        const btn = document.createElement('paper-tab');
-        btn.entityId = entityId;        
-        btn.innerText = hass.states[entityId].attributes.friendly_name;
-        return btn;
-    }
+    //     const btn = document.createElement('paper-tab');
+    //     btn.entityId = entityId;        
+    //     btn.innerText = hass.states[entityId].attributes.friendly_name;
+    //     return btn;
+    // }
 
     setConfig(config) {
         if (!config.entities) {
