@@ -180,7 +180,7 @@ class JukeboxCard extends HTMLElement {
         const btn = document.createElement('mwc-button');
         btn.stationUrl = url;
         btn.className = 'juke-toggle';
-        btn.innerText = this._selectedSpeaker//name;
+        btn.innerText = name;
         btn.addEventListener('click', this.onStationSelect.bind(this));
         return btn;
     }
@@ -195,7 +195,7 @@ class JukeboxCard extends HTMLElement {
 
     setVolume(value) {
         this.hass.callService('media_player', 'volume_set', {
-            entity_id: this._selectedSpeaker,
+            entity_id: 'media_player.soundbar',
             volume_level: value
         });
     }
